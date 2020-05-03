@@ -1,0 +1,15 @@
+.container {
+  display: grid;
+  gap: 1px 1px;
+  grid-template-columns: repeat(3, 1fr);
+
+  .box {
+    height: 41px;
+    width: 41px;
+    background-color: green;
+  }
+}
+
+.horizontal {
+  grid-template-columns: repeat(6, 1fr);
+}

@@ -1,0 +1,28 @@
+$roomColor: red;
+$bgColor: white;
+
+.container {
+  background: $roomColor;
+  height: 251px;
+  width: 251px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .border {
+    height: 70%;
+    width: 70%;
+    background: $bgColor;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    border-radius: 10%;
+    .place {
+      height: 62%;
+      width: 62%;
+      border-radius: 50%;
+      background-color: $roomColor;
+      margin: 5px;
+      justify-self: center;
+    }
+  }
+}
