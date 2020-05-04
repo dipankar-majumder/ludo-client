@@ -1,31 +1,20 @@
 import React from 'react';
-import Room from '../components/Room';
+import { Room, Final } from '../components/Room';
 import style from './Play.module.scss';
 import Track from '../components/Track';
-
-const Final = () => {
-  return (
-    <div className={style.finalContainer}>
-      <div className={style.square}> </div>
-      <div className={style.square}> </div>
-      <div className={style.square}> </div>
-      <div className={style.square}> </div>
-    </div>
-  );
-};
 
 export default function Play() {
   return (
     <div className={style.container}>
-      <Room />
-      <Track />
-      <Room />
-      <Track horizontal />
+      <Room color="red" />
+      <Track color="green" />
+      <Room color="green" />
+      <Track color="red" />
       <Final />
-      <Track horizontal />
-      <Room />
-      <Track />
-      <Room />
+      <Track color="yellow" />
+      <Room color="blue" />
+      <Track color="blue" />
+      <Room color="yellow" />
     </div>
   );
 }

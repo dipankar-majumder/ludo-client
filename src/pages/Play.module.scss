@@ -2,15 +2,4 @@
   display: grid;
   grid-template-columns: 251px 125px 251px;
   gap: 1px 1px;
-
-  .finalContainer {
-    height: 125px;
-    width: 125px;
-    display: grid;
-    gap: 1px 1px;
-    grid-template-columns: 1fr 1fr;
-    .square {
-      background: blue;
-    }
-  }
 }

@@ -1,3 +1,5 @@
+@import 'Room.module';
+
 .container {
   display: grid;
   gap: 1px 1px;
@@ -6,10 +8,22 @@
   .box {
     height: 41px;
     width: 41px;
-    background-color: green;
+    background-color: #949191;
+  }
+  .red {
+    background-color: $redRoomColor;
+  }
+  .green {
+    background-color: $greenRoomColor;
+  }
+  .blue {
+    background-color: $blueRoomColor;
+  }
+  .yellow {
+    background-color: $yellowRoomColor;
   }
 }
 
-.horizontal {
+.landscape {
   grid-template-columns: repeat(6, 1fr);
 }

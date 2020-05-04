@@ -1,7 +1,12 @@
-$roomColor: red;
-$bgColor: white;
+$redRoomColor: #fd0305;
+$greenRoomColor: #00972a;
+$blueRoomColor: #01abff;
+$yellowRoomColor: #fee700;
 
-.container {
+@mixin functionality($col) {
+  $roomColor: $col;
+  $bgColor: white;
+
   background: $roomColor;
   height: 251px;
   width: 251px;
@@ -24,5 +29,49 @@ $bgColor: white;
       margin: 5px;
       justify-self: center;
     }
+  }
+}
+
+.red {
+  @include functionality($redRoomColor);
+}
+
+.green {
+  @include functionality($greenRoomColor);
+}
+
+.blue {
+  @include functionality($blueRoomColor);
+}
+
+.yellow {
+  @include functionality($yellowRoomColor);
+}
+
+.finalContainer {
+  height: 125px;
+  width: 125px;
+  display: grid;
+  // gap: 1px 1px;
+  grid-template-columns: 1fr 1fr;
+  .square1 {
+    background: linear-gradient(45deg, $redRoomColor 50%, $greenRoomColor 50%);
+  }
+  .square2 {
+    background: linear-gradient(
+      -45deg,
+      $yellowRoomColor 50%,
+      $greenRoomColor 50%
+    );
+  }
+  .square3 {
+    background: linear-gradient(-45deg, $blueRoomColor 50%, $redRoomColor 50%);
+  }
+  .square4 {
+    background: linear-gradient(
+      45deg,
+      $blueRoomColor 50%,
+      $yellowRoomColor 50%
+    );
   }
 }
