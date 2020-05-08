@@ -7,6 +7,7 @@ import Play from './pages/Play';
 import Landing from './pages/Landing';
 
 import { SocketContext } from './contexts';
+import { useForceUpdate } from './customHooks';
 
 const App: React.FC = () => {
   const [state, setState] = React.useState<{ nav?: string }>({
@@ -16,15 +17,21 @@ const App: React.FC = () => {
   React.useEffect(() => {
     setSocket(io('http://localhost:5000'));
   }, []);
+  const forceUpdate = useForceUpdate();
   React.useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log(socket);
-  }, [socket]);
+    const checkSocketConnection = setInterval(() => {
+      if (socket?.id) {
+        clearInterval(checkSocketConnection);
+        forceUpdate(0);
+      }
+      console.log('checkSocketConnection');
+    }, 1000);
+  });
 
   return (
     <SocketContext.Provider value={{ socket, setSocket }}>
       <div className={style.App}>
-        {socket?.id}
+        {`SocketID: ${socket?.id ? socket.id : 'Connecting'}`}
         <nav>
           <div
             onClick={() => {
