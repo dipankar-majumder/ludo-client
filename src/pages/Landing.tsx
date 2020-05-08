@@ -48,18 +48,16 @@ export default function Landing() {
           label="Join"
           onClick={() => {
             setState({ ...state, play: true });
-            socket?.emit(
-              'join_game',
-              state.uri,
-              (room: string, error: unknown) => {
-                if (error) {
-                  // eslint-disable-next-line no-console
-                  console.log(`join_game => Error: ${error}`);
-                }
+            socket?.emit('join_game', state.uri, (message: any) => {
+              // eslint-disable-next-line no-console
+              console.log(message);
+              if (message?.data?.error) {
                 // eslint-disable-next-line no-console
-                console.log(`join_game => roomID: ${room}`);
-              },
-            );
+                console.log('join_game => Error: ', message?.data?.error);
+              }
+              // eslint-disable-next-line no-console
+              console.log('join_game => roomID: ', message?.data?.room);
+            });
           }}
         />
       </form>
