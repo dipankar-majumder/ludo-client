@@ -1,37 +1,53 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react';
+import React from 'react';
+import io from 'socket.io-client';
 import style from './App.module.scss';
 import Play from './pages/Play';
 import Landing from './pages/Landing';
 
-function App() {
-  const [state, setState] = useState({ nav: 'landing' });
+import { SocketContext } from './contexts';
+
+const App: React.FC = () => {
+  const [state, setState] = React.useState<{ nav?: string }>({
+    nav: 'landing',
+  });
+  const [socket, setSocket] = React.useState<SocketIOClient.Socket>();
+  React.useEffect(() => {
+    setSocket(io('http://localhost:5000'));
+  }, []);
+  React.useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log(socket);
+  }, [socket]);
 
   return (
-    <div className={style.App}>
-      <nav>
-        <div
-          onClick={() => {
-            setState({ nav: 'landing' });
-          }}
-          role="button"
-        >
-          Landing
-        </div>
-        <div
-          onClick={() => {
-            setState({ nav: 'play' });
-          }}
-          role="button"
-        >
-          Play
-        </div>
-      </nav>
-      {state.nav === 'play' && <Play />}
-      {state.nav === 'landing' && <Landing />}
-    </div>
+    <SocketContext.Provider value={{ socket, setSocket }}>
+      <div className={style.App}>
+        {socket?.id}
+        <nav>
+          <div
+            onClick={() => {
+              setState({ nav: 'landing' });
+            }}
+            role="button"
+          >
+            Landing
+          </div>
+          <div
+            onClick={() => {
+              setState({ nav: 'play' });
+            }}
+            role="button"
+          >
+            Play
+          </div>
+        </nav>
+        {state.nav === 'play' && <Play />}
+        {state.nav === 'landing' && <Landing />}
+      </div>
+    </SocketContext.Provider>
   );
-}
+};
 
 export default App;
