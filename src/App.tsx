@@ -24,7 +24,6 @@ const App: React.FC = () => {
         clearInterval(checkSocketConnection);
         forceUpdate(0);
       }
-      console.log('checkSocketConnection');
     }, 1000);
   });
 
