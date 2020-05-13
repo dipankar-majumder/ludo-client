@@ -1,0 +1,74 @@
+.container {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin diceRoot {
+  height: 100%;
+  width: 100%;
+  div {
+    height: 8px;
+    width: 8px;
+    background: white;
+    border-radius: 50%;
+  }
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  div {
+    justify-self: center;
+  }
+}
+
+.diceWrapper {
+  height: 60px;
+  width: 60px;
+  background-color: red;
+
+  .dice0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100%;
+  }
+
+  .dice1 {
+    @include diceRoot();
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dice2,
+  .dice3,
+  .dice4,
+  .dice5,
+  .dice6 {
+    @include diceRoot();
+    @include grid();
+  }
+
+  .dice2,
+  .dice3 {
+    transform: rotate(-45deg);
+  }
+
+  .dice3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .dice5 {
+    div {
+      &:last-child {
+        position: absolute;
+      }
+    }
+  }
+}
