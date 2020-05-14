@@ -11,7 +11,7 @@ import { useForceUpdate } from './customHooks';
 
 const App: React.FC = () => {
   const [state, setState] = React.useState<{ nav?: string }>({
-    nav: 'landing',
+    nav: 'play',
   });
   const [socket, setSocket] = React.useState<SocketIOClient.Socket>();
   React.useEffect(() => {
