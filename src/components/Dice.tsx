@@ -15,11 +15,11 @@ export default () => {
   };
 
   return (
-    <div onClick={clickHandler}>
+    <>
       {rolling && <RollingDice />}
       {!rolling && (
         <div className={style.container}>
-          <div className={style.diceWrapper}>
+          <div className={style.diceWrapper} onClick={clickHandler}>
             <div className={style[`dice${diceNumber}`]}>
               {Array.from(Array(diceNumber).keys()).map(el => (
                 <div key={el} />
@@ -29,6 +29,6 @@ export default () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
