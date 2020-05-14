@@ -66,8 +66,8 @@
 
   .dice5 {
     div {
-      &:last-child {
-        position: absolute;
+      &:nth-child(3) {
+        grid-column: 1 / span 2;
       }
     }
   }

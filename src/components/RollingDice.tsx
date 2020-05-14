@@ -7,37 +7,37 @@ export default () => {
       <div className={style.diceContainer}>
         <div className={style.dice}>
           <div className={style.front}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
           </div>
           <div className={style.back}>
-            <span></span>
+            <span />
           </div>
           <div className={style.right}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
           </div>
           <div className={style.left}>
-            <span></span>
-            <span></span>
+            <span />
+            <span />
           </div>
           <div className={style.top}>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span />
+            <span />
+            <span />
           </div>
           <div className={style.bottom}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span />
+            <span />
+            <span />
+            <span />
           </div>
         </div>
       </div>
